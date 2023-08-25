@@ -184,3 +184,7 @@ MonoBehaviour:
   block: {fileID: 6883620350293535586}
   jumpForce: 8
   isAlive: 1
+  audioSource: {fileID: 0}
+  point: {fileID: 8300000, guid: b0fff55b9194cf149b7263d5307460b9, type: 3}
+  death: {fileID: 8300000, guid: 4a41b67d5d660c44e8e5bb9affe823fe, type: 3}
+  jump: {fileID: 8300000, guid: 3542021e17efe8a4f8360605618c3ba8, type: 3}
