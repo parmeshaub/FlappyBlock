@@ -75,6 +75,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: bfb1ed8b07ce94f488410ea01560f724,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bfb1ed8b07ce94f488410ea01560f724,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7a5135d999c988c43a787ef799d26f7a, type: 2}
@@ -91,6 +96,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 402069839781972062}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bfb1ed8b07ce94f488410ea01560f724,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5650966061928801128}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bfb1ed8b07ce94f488410ea01560f724,
         type: 3}
       insertIndex: -1
@@ -126,9 +135,40 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 104
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
+--- !u!114 &5650966061928801128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883620350293535586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: fbb51a44849ad47459f4e2fbb641d3fb,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Keyboard
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!114 &2275452761958156079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,3 +183,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   block: {fileID: 6883620350293535586}
   jumpForce: 8
+  isAlive: 1
