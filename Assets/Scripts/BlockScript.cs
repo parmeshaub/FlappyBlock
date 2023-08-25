@@ -9,13 +9,15 @@ public class BlockScript : MonoBehaviour
 {
     [Header("References")]
     public GameObject block;
-    private Rigidbody rb;
+    public Rigidbody rb;
     private InterfaceManager ui;
+    private GameManager gameManager;
 
     [Header("Variables")]
     public float jumpForce;
     private int score = 0;
     public bool isAlive = true;
+    private Transform initalTransform;
 
     [Header("Audio")]
     public AudioSource audioSource;
@@ -33,6 +35,9 @@ public class BlockScript : MonoBehaviour
 
         //Get reference to the active interface manager (singleton reference)
         ui = InterfaceManager.instance;
+
+        //Get reference to the active Game Manager
+        gameManager = GameManager.instance;
     }
 
     void Update()
@@ -68,22 +73,50 @@ public class BlockScript : MonoBehaviour
             {
                 //Death Effects
                 //Launch the block backwards
-                rb.AddForce(-10, 2, 3, ForceMode.Impulse);
+                rb.AddForce(-10, 2, 0, ForceMode.Impulse);
                 //Plays death audio
                 audioSource.PlayOneShot(death);
                 //Changes deathOnce to true so that this code will not run again if block hits another pipe while falling.
                 deathOnce = true;
+                //Run the OnPlayerDeath code in the GameManager
+                gameManager.OnPlayerDeath();
+
+                ui.scoreObject.SetActive(false);
+                
             }
             
         }
         
     }
 
+    public void ResetGame()
+    {
+        // Make sure to check if 'block' and 'rb' are properly assigned
+        if (block == null || rb == null)
+        {
+            Debug.LogError("Block or Rigidbody components are not assigned.");
+            return;
+        }
+
+        // Reset velocity to zero
+        rb.velocity = Vector3.zero;
+
+        // Reset other relevant variables if needed
+        deathOnce = false;
+        isAlive = true;
+
+        // Reset the position to Vector3.zero
+        block.transform.position = Vector3.zero;
+        ui.score.text = "0";
+        score = 0;
+    }
+
+
     //On jump using unity input
     void OnJump()
     {
         //Checks to see if block is alive
-        if (isAlive)
+        if (isAlive == true)
         {
             //Reset velocity so that jump can be consistent 
             rb.velocity = Vector3.zero;
